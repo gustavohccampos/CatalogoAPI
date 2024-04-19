@@ -1,6 +1,7 @@
 ﻿using CatalogoAPI.Context;
 using CatalogoAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CatalogoAPI.Controllers
 {
@@ -15,23 +16,26 @@ namespace CatalogoAPI.Controllers
             _context = context;
         }
 
+        // url/produtos
         [HttpGet]
-        public ActionResult<IEnumerable<Produto>> Get()
+        public async Task<ActionResult<IEnumerable<Produto>>> Get()
         {
-            var produtos = _context.Produtos.ToList();
 
+            var produtos = await _context.Produtos.AsNoTracking().ToListAsync();
             if (produtos is null)
             {
                 return NotFound("Produtos não encontrados!");
             }
-
             return produtos;
+
+
         }
 
-        [HttpGet("{id:int}", Name = "ObterProduto")]
-        public ActionResult<Produto> GetId(int id)
+        // url/produtos/id
+        [HttpGet("{id:int:min(1)}", Name = "ObterProduto")]
+        public async Task<ActionResult<Produto>> GetId(int id)
         {
-            var produto = _context.Produtos.FirstOrDefault(p => p.ProdutoId == id);
+            var produto = await _context.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.ProdutoId == id);
             if (produto is null)
             {
                 return NotFound("Produto não encontrado!");
@@ -40,6 +44,7 @@ namespace CatalogoAPI.Controllers
         }
 
 
+        // url/produtos (POST)
         [HttpPost]
         public ActionResult Post(Produto produto)
         {
@@ -53,6 +58,7 @@ namespace CatalogoAPI.Controllers
 
         }
 
+        // url/produtos/id (PUT)
         [HttpPut("{id:int}")]
         public ActionResult Put(int id, Produto produto)
         {
@@ -63,6 +69,7 @@ namespace CatalogoAPI.Controllers
             return Ok(produto);
         }
 
+        // url/produtos/id (DELETE)
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {

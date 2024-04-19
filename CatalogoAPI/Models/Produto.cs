@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace CatalogoAPI.Models
 {
@@ -18,7 +19,7 @@ namespace CatalogoAPI.Models
         public string? Descricao { get; set; }
 
         [Required]
-        [Column(TypeName ="decimal(10,2)")]
+        [Column(TypeName = "decimal(10,2)")]
         public decimal Preco { get; set; }
 
 
@@ -30,7 +31,10 @@ namespace CatalogoAPI.Models
         public float Estoque { get; set; }
         public DateTime DataCadastro { get; set; }
 
+
         public int CategoriaId { get; set; }
+
+        [JsonIgnore]
         public Categoria? Categoria { get; set; }
     }
 }

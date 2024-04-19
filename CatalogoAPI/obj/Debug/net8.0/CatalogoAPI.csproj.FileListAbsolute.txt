@@ -241,3 +241,4 @@ C:\Users\Gustavo\Desktop\C#2024\ProjetoApiAngular\Catalogo\CatalogoAPI\CatalogoA
 C:\Users\Gustavo\Desktop\C#2024\ProjetoApiAngular\Catalogo\CatalogoAPI\CatalogoAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\Gustavo\Desktop\C#2024\ProjetoApiAngular\Catalogo\CatalogoAPI\CatalogoAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Gustavo\Desktop\C#2024\ProjetoApiAngular\Catalogo\CatalogoAPI\CatalogoAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\Gustavo\Desktop\C#2024\ProjetoApiAngular\Catalogo\CatalogoAPI\CatalogoAPI\obj\Debug\net8.0\CatalogoAPI.sourcelink.json
